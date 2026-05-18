@@ -22,6 +22,10 @@ export default function Hero() {
   const autoTimer = useRef(null);
   const resumeTimer = useRef(null);
 
+  // Touch Swipe Refs
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const [realIdx, setRealIdx] = useState(toReal(START_IDX));
 
   const getW = useCallback(() => {
@@ -137,6 +141,32 @@ export default function Hero() {
     [slideTo, startAuto, stopAuto],
   );
 
+  // Mobile Swipe Handlers
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+
+    // threshold of 50px for a valid swipe
+    if (distance > 50) {
+      handleNav(1); // Swiped Left
+    } else if (distance < -50) {
+      handleNav(-1); // Swiped Right
+    }
+
+    // Reset values
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
   //  set --slide-w CSS variable
   useEffect(() => {
     const update = () => {
@@ -237,7 +267,7 @@ export default function Hero() {
           </div>
 
           <h1
-            className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold
+            className="text-[1.75rem] sm:text-4xl lg:text-[3.25rem] font-bold
                          leading-[1.1] text-gray-900 tracking-tight"
           >
             {product?.name}
@@ -283,6 +313,9 @@ export default function Hero() {
       */}
       <div
         ref={wrapRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         className="group/slider relative w-full sm:w-1/2 overflow-hidden bg-gray-100
                    h-[300px] sm:h-auto sm:self-stretch"
       >
