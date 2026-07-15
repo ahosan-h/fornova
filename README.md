@@ -15,7 +15,7 @@
 
 - 🖥️ [Frontend](https://fonova-frontend.netlify.app)
 - 🛠️ [Admin](https://fornova-admin.netlify.app)
-- ⚙️ [Backend](fornova-production.up.railway.app)
+- ⚙️ [Backend](https://fornova-production.up.railway.app/)
 
 > ⚠️ Backend may take a few seconds to respond initially (cold start on free hosting).
 
