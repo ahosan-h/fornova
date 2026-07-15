@@ -17,8 +17,6 @@
 - 🛠️ [Admin](https://fornova-admin.netlify.app)
 - ⚙️ [Backend](https://fornova-production.up.railway.app/)
 
-> ⚠️ Backend may take a few seconds to respond initially (cold start on free hosting).
-
 > Background worker runs as a separate service for handling queues (emails & notifications)
 
 ---
