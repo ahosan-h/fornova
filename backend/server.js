@@ -13,7 +13,7 @@ import cartRouter from "./routes/cartRoutes.js";
 import notificationRouter from "./routes/notificationRoutes.js";
 import startCronJobs from "./config/cron.js";
 import paymentRouter from "./routes/paymentRoutes.js";
-import "./workers/orderWorker.js";
+// import "./workers/orderWorker.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
