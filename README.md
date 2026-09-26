@@ -15,7 +15,7 @@
 
 - 🖥️ [Frontend](https://fonova-frontend.netlify.app)
 - 🛠️ [Admin](https://fornova-admin.netlify.app)
-- ⚙️ [Backend](https://fornova-production.up.railway.app/)
+- ⚙️ [Backend](https://fonova.onrender.com)
 
 > Background worker runs as a separate service for handling queues (emails & notifications)
 
